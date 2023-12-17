@@ -45,11 +45,11 @@ func _physics_process(_delta):
 	
 	velocity = Input.get_vector("left","right", "up", "down") * BASE_SPEED
 	
-	# :NOTE: An arugment could be made here that Input.get_vector should be used
-	# instead depending of velocity regarding animations we want in the future.
+	# :NOTE: An argument could be made here that Input.get_vector should be used
+	# instead depending on velocity regarding animations we want in the future.
 	# Currently I'm thinking we stay with velocity as if we allow signals to 
 	# change the player's velocity (such as when they take a hit) then it'd be 
-	# best if we use velocity to determine which animation to take based off of
+	# Best if we use velocity to determine which animation to take based on
 	# the players final movement direciton.
 	current_state.update_state(velocity)
 	if(current_state.state == WALKING):	
@@ -77,7 +77,7 @@ func _physics_process(_delta):
 	# :NOTE:
 	# delta is automatically incorporated in move_and_slide.
 	# see https://github.com/godotengine/godot-proposals/issues/1192
-	# Rather inconsistant with move_and_collide which requires delta 
-	# (and an input argument which isn't needed as move_and_slide automatcially
+	# Rather inconsistent with move_and_collide which requires delta 
+	# (and an input argument that isn't needed as move_and_slide automatically
 	# grabs velocity).
 	move_and_slide()
