@@ -50,7 +50,7 @@ func _physics_process(_delta):
 	# Currently I'm thinking we stay with velocity as if we allow signals to 
 	# change the player's velocity (such as when they take a hit) then it'd be 
 	# Best if we use velocity to determine which animation to take based on
-	# the players final movement direciton.
+	# the player's final movement direction.
 	current_state.update_state(velocity)
 	if(current_state.state == WALKING):	
 		if(current_state.direction == RIGHT):
