@@ -53,26 +53,28 @@ func _physics_process(_delta):
 	# the player's final movement direction.
 	current_state.update_state(velocity)
 	if(current_state.state == WALKING):	
-		if(current_state.direction == RIGHT):
-			$AnimatedSprite2D.play("WalkRight")
-		elif(current_state.direction == LEFT):
-			$AnimatedSprite2D.play("WalkLeft")
-		elif(current_state.direction == DOWN):
-			$AnimatedSprite2D.play("WalkDown")
-		elif(current_state.direction == UP):
-			$AnimatedSprite2D.play("WalkUp")
+		match(current_state.direction):
+			RIGHT:
+				$AnimatedSprite2D.play("WalkRight")
+			LEFT:
+				$AnimatedSprite2D.play("WalkLeft")
+			DOWN:
+				$AnimatedSprite2D.play("WalkDown")
+			UP:
+				$AnimatedSprite2D.play("WalkUp")
 	else: # The player is idling, choose the correct idle animation to match.
 		assert(current_state.state == IDLE)
 		# Prove that $AnimatedSprite2D is not a null instance
 		assert(is_instance_valid($AnimatedSprite2D))
-		if(current_state.direction == UP):
-			$AnimatedSprite2D.play("IdleUp")
-		elif(current_state.direction == DOWN):
-			$AnimaDtedSprite2D.play("IdleDown")
-		elif(current_state.direction == LEFT):
-			$AnimaDtedSprite2D.play("IdleLeft")
-		elif(current_state.direction == RIGHT):
-			$AnimaDtedSprite2D.play("IdleRight")
+		match(current_state.direction):
+			RIGHT:
+				$AnimatedSprite2D.play("IdleRight")
+			LEFT:
+				$AnimatedSprite2D.play("IdleLeft")
+			DOWN:
+				$AnimatedSprite2D.play("IdleDown")
+			UP:
+				$AnimatedSprite2D.play("IdleUp")
 	
 	# :NOTE:
 	# delta is automatically incorporated in move_and_slide.
